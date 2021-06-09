@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['192.168.8.146',
 		 '127.0.0.1']
 
+FILE_CHARSET='gb18030'
+DEFAULT_CHARSET='utf-8'
 
 # Application definition
 
