@@ -1,27 +1,26 @@
-<!--myApp\templates\myApp\detail.html-->
 <h1>Book List</h1>
 <table>
-	<tr>
-		<td>ÊéÃû</td>
-		<td>×÷Õß</td>
-		<td>³ö°æÉç</td>
-		<td>³ö°æÈÕÆÚ</td>
-	</tr>
-	{% for book in book_list.all %}
-	<tr>
-		<td>{{ book.name }}</td>
-		<td>{{ book.author }}</td>
-		<td>{{ book.pub_house }}</td>
-		<td>{{ book.pub_date }}</td>
-	</tr>
-	{% endfor %}
+    <tr>
+        <td>ä¹¦å</td>
+        <td>ä½œè€…</td>
+        <td>å‡ºç‰ˆç¤¾</td>
+        <td>å‡ºç‰ˆæ—¶é—´</td>
+    </tr>
+{% for book in book_list.all %}
+    <tr>
+        <td>{{ book.name }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.pub_house }}</td>
+        <td>{{ book.pub_date }}</td>
+        <td><a href="{% url 'delBook' book.id %}">åˆ é™¤</a></td><!--åªæ·»åŠ è¿™ä¸€è¡Œ-->
+    </tr>
+{% endfor %}
 </table>
 
-<form action="" method="post" name"addBook">
-	{% csrf_token %}
-	<p><span>ÊéÃû£º</span><input type="text" name="name" /></p>
-	<p><span>×÷Õß£º</span><input type="text" name="author" /></p>
-	<p><span>³ö°æÉç£º</span><input type="text" name="pub_house" /></p>
-	<input type="submit" value="Ìí¼Ó" />
+<form action="/addBook/" method="post" name="addBook">
+    {% csrf_token %}
+    <p><span>ä¹¦åï¼š</span><input type="text"  name="name"></p>
+    <p><span>ä½œè€…ï¼š</span><input type="text"  name="author"></p>
+    <p><span>å‡ºç‰ˆç¤¾ï¼š</span><input type="text"  name="pub_house"></p>
+    <input type="submit" value="æ·»åŠ ">
 </form>
-
